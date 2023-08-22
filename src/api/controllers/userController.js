@@ -35,7 +35,6 @@ export const loginUser = AsyncHandler(async (req, res) => {
 
   // comparing the user pwds
   const isMatch = await userExists.comparePwd(password);
-  console.log(isMatch); // returns a boolean
 
   if (!isMatch) {
     throw new UnauthenticatedError(
