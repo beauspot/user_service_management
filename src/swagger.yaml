@@ -1,0 +1,136 @@
+openapi: 3.0.0
+info:
+  title: User Management Service API
+  contact:
+    name: Beau Iyere
+    email: beauspot@outlook.com
+  version: '1.0'
+servers:
+- url: http://localhost:5050
+  variables: {}
+paths:
+  /api/auth/signup:
+    post:
+      tags:
+      - Authentication
+      summary: Signup User
+      operationId: SignupUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/SingupUSerRequest'
+              - example:
+                  username: beauIyere
+                  password: b1058019
+            example:
+              username: beauIyere
+              password: b1058019
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /api/auth/login:
+    post:
+      tags:
+      - Authentication
+      summary: loginuser
+      operationId: loginuser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/loginuserrequest'
+              - example:
+                  username: beauIyere
+                  password: b1058019
+            example:
+              username: beauIyere
+              password: b1058019
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /api/dashboard:
+    get:
+      tags:
+      - Dashboard
+      summary: dashboard
+      operationId: dashboard
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /:
+    get:
+      tags:
+      - Entry Point of the Application
+      summary: Index endpoint
+      operationId: Indexendpoint
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+components:
+  schemas:
+    SingupUSerRequest:
+      title: SingupUSerRequest
+      required:
+      - username
+      - password
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      example:
+        username: beauIyere
+        password: b1058019
+    loginuserrequest:
+      title: loginuserrequest
+      required:
+      - username
+      - password
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      example:
+        username: beauIyere
+        password: b1058019
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+- name: User Management Service
+  description: ''
+- name: Authentication
+  description: ''
+- name: Dashboard
+  description: ''
+- name: Entry Point of the Application
+  description: ''
