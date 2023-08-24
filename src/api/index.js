@@ -7,7 +7,7 @@ import helmet from "helmet";
 import "reflect-metadata";
 import dotenv from "dotenv";
 import session from "express-session";
-import rateLimit from "express-rate-limit";
+// import rateLimit from "express-rate-limit";
 import swaggerUI from "swagger-ui-express";
 import YAML from "yamljs";
 import path from "path";
