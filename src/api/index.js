@@ -34,16 +34,16 @@ import dashboardRoute from "./routes/dashboard.js";
 dotenv.config();
 
 const app = express();
-/* app.set("trust proxy", false);
+app.set("trust proxy", false);
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
   standardHeaders: true,
   legacyHeaders: false,
-}); */
+});
 
 app.use(morgan("dev"));
-// app.use(limiter);
+app.use(limiter);
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
