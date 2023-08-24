@@ -51,7 +51,7 @@ const corsOptions = {
 
 app.use(morgan("dev"));
 // app.use(limiter);
-app.use(cors());
+// app.use(cors());
 app.use(helmet());
 app.use(express.json());
 app.use(
