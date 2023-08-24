@@ -34,7 +34,7 @@ import dashboardRoute from "./routes/dashboard.js";
 dotenv.config();
 
 const app = express();
-app.set("trust proxy", false);
+app.set("trust proxy", true);
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
