@@ -14,7 +14,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
-
 // Get the current module's URL
 const currentModuleUrl = import.meta.url;
 
@@ -35,8 +34,7 @@ import dashboardRoute from "./routes/dashboard.js";
 dotenv.config();
 
 const app = express();
-
-app.set("trust proxy", true);
+app.set("trust proxy", false);
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
