@@ -8,7 +8,6 @@ info:
 servers:
 - url: http://localhost:5050
   variables: {}
-- url: https://user-management-service-api.onrender.com
 paths:
   /api/auth/signup:
     post:
