@@ -41,9 +41,11 @@ const limiter = rateLimit({
   max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
   standardHeaders: true,
   legacyHeaders: false,
+  cookie: { secure: true },
 });
 
-
+app.disable("x-powered-by");
+app.set("trust proxy", 1);
 app.use(morgan("dev"));
 app.use(limiter);
 app.use(cors());
