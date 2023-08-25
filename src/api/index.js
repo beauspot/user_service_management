@@ -11,6 +11,7 @@ import rateLimit from "express-rate-limit";
 import swaggerUI from "swagger-ui-express";
 import YAML from "yamljs";
 import path from "path";
+import MongoStore from "connect-mongo";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
@@ -56,6 +57,10 @@ app.use(
     secret: process.env.SESSION_SECRET_KEY,
     resave: false,
     saveUninitialized: true,
+     store: MongoStore.create({
+      mongoUrl: process.env.SESSION_STORAGE,
+      ttl: 14 * 24 * 60 * 60,
+    }),
   })
 );
 
